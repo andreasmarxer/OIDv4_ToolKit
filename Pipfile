@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+numpy = "*"
+pandas = "*"
+awscli = "*"
+urllib3 = "*"
+opencv-python = "*"
+tqdm = "*"
+lxml = "*"
+
+[requires]
+python = "==3.6.4"
