@@ -1,7 +1,7 @@
 """
 Location: OIDv4_ToolKit parent directory
 
-Usage: 
+Usage:
     Start from OIDv4_ToolKit root directory.
 
     The script will create directories called To_PASCAL_XML (similar to the Label directories) in the Dataset Subdirectories.
@@ -18,7 +18,7 @@ from textwrap import dedent
 from lxml import etree
 
 
-XML_DIR = 'To_PASCAL_XML'
+XML_DIR = 'annotations'
 
 
 os.chdir(os.path.join("OID", "Dataset"))
@@ -31,7 +31,7 @@ for DIR in DIRS:
         print("Currently in Subdirectory:", DIR)
 
         CLASS_DIRS = os.listdir(os.getcwd())
-        
+
         for CLASS_DIR in CLASS_DIRS:
             if os.path.isdir(CLASS_DIR):
                 os.chdir(CLASS_DIR)
@@ -51,7 +51,7 @@ for DIR in DIRS:
 
 
                         annotation = etree.Element("annotation")
-                        
+
                         os.chdir("..")
                         folder = etree.Element("folder")
                         folder.text = os.path.basename(os.getcwd())
@@ -105,7 +105,7 @@ for DIR in DIRS:
                             ymin_l = str(int(float(l[2])))
                             xmax_l = str(int(float(l[3])))
                             ymax_l = str(int(float(l[4])))
-                            
+
                             obj = etree.Element("object")
                             annotation.append(obj)
 
@@ -158,7 +158,6 @@ for DIR in DIRS:
                         os.chdir("Label")
 
                 os.chdir("..")
-                os.chdir("..")   
-                   
+                os.chdir("..")
+
         os.chdir("..")
-                   
